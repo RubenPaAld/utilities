@@ -7,100 +7,30 @@ public class Vector {
 	
 	private static Scanner s = new Scanner(System.in);
 
-	public static void imprimirVector(int[] v) {
+	public static void imprimirVector(Object[] v) {
 		
 		for (int i = 0; i < v.length; i++) {
-			System.out.println(v[i] + "\t");
+			System.out.println(v[i].toString() + "\t");
 		}
 	}
 	
-	public static void imprimirVector(char[] v) {
-		
-		for (int i = 0; i < v.length; i++) {
-			System.out.println(v[i] + "\t");
-		}
-	}
-	
-	public static void imprimirVector(float[] v) {
-		
-		for (int i = 0; i < v.length; i++) {
-			System.out.println(v[i] + "\t");
-		}
-	}
-	
-	public static void imprimirVector(double[] v) {
-		
-		for (int i = 0; i < v.length; i++) {
-			System.out.println(v[i] + "\t");
-		}
-	}
-	
-	public static void imprimirVector(long[] v) {
-		
-		for (int i = 0; i < v.length; i++) {
-			System.out.println(v[i] + "\t");
-		}
-	}
-	
-	public static void imprimirVector(String[] v) {
-		
-		for (int i = 0; i < v.length; i++) {
-			System.out.println(v[i] + "\t");
-		}
-	}
-	
-	public static void imprimirVectorBidimensiona(int[][] v) {
+	public static void imprimirVectorBidimensional(Object[][] v) {
 		
 		for (int i = 0; i < v.length; i++) {
 			for (int j = 0; j < v[i].length; j++) {
-				System.out.println(v[i][j] + "\t");	
+				System.out.println(v[i][j].toString() + "\t");	
 			}
 		}
 	}
 	
-	public static void imprimirVectorBidimensional(char[][] v) {
+	public static boolean arrayContainsElement(Object[] v, Object e) {
 		
 		for (int i = 0; i < v.length; i++) {
-			for (int j = 0; j < v[i].length; j++) {
-				System.out.println(v[i][j] + "\t");	
-			}
+			
+			if(v[i].equals(e))
+				return true;
 		}
-	}
-	
-	public static void imprimirVectorBidimensional(float[][] v) {
-		
-		for (int i = 0; i < v.length; i++) {
-			for (int j = 0; j < v[i].length; j++) {
-				System.out.println(v[i][j] + "\t");	
-			}
-		}
-	}
-	
-	public static void imprimirVectorBidimensional(double[][] v) {
-		
-		for (int i = 0; i < v.length; i++) {
-			for (int j = 0; j < v[i].length; j++) {
-				System.out.println(v[i][j] + "\t");	
-			}
-		}
-	}
-	
-	public static void imprimirVectorBidimensional(long[][] v) {
-		
-		for (int i = 0; i < v.length; i++) {
-			for (int j = 0; j < v[i].length; j++) {
-				System.out.println(v[i][j] + "\t");	
-			}
-		}
-	}
-	
-	public static void imprimirVectorBidimensional(String[][] v) {
-		
-		for (int i = 0; i < v.length; i++) {
-			for (int j = 0; j < v[i].length; j++) {
-				System.out.println(v[i][j] + "\t");	
-			}
-		}
+		return false;
 	}
 	
 	public static int getEntero(int min, int max) {
@@ -139,7 +69,8 @@ public class Vector {
 	
 	public static void main(String[] args) {
 		
-		System.out.println(getChar());
-		System.out.println(getChar());
+		Integer[] x = {1,2,3};
+		
+		System.out.println(Vector.arrayContainsElement(x, 2));
 	}
 }
