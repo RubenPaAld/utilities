@@ -74,13 +74,15 @@ public class Utilities {
 	
 	public static char getChar() {
 		
-		try {
-			char c = (char) System.in.read();
-			while(System.in.read() != '\n');
-			return c;
-		}catch(java.io.IOException e) {
-			return ' ';
-		}
+		do {
+			try {
+				char c = (char) System.in.read();
+				while(System.in.read() != '\n');
+				return c;
+			}catch(java.io.IOException e) {
+				
+			}
+		}while(true);
 	}
 	
 	public static void main(String[] args) {
