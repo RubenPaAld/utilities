@@ -1,6 +1,5 @@
 package utilitites;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Utilities {
@@ -23,6 +22,31 @@ public class Utilities {
 			}	
 		}
 		System.out.println();
+	}
+	
+	public static boolean containsElement(Object[] m, Object e) {
+		
+		boolean flag = false;
+		
+		for (int i = 0; i < m.length; i++) {
+
+			try {
+				if(m[i].getClass().isArray()) { 
+					
+					if (Utilities.containsElement((Object[]) m[i], e)) {
+						flag = true;
+						break;
+					}
+				}else {
+					
+					if (m[i].equals(e)) {
+						flag = true;
+						break;
+					}
+				}
+			}catch(java.lang.NullPointerException ex) {}	
+		}
+		return flag;
 	}
 	
 	public static int getInteger(int min, int max) {
@@ -87,8 +111,13 @@ public class Utilities {
 	
 	public static void main(String[] args) {
 		
-		System.out.println(Utilities.getDouble());
-		System.out.println(Utilities.getDouble());
+		Integer[][][] x = new Integer[8][12][13];
+		
+		
+		
+		x[7][11][12] = 9;
+		
+		System.out.println(Utilities.containsElement(x, 9));
 	}
 
 }
