@@ -1,5 +1,7 @@
 package utilitites;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Utilities {
@@ -47,6 +49,38 @@ public class Utilities {
 			}catch(java.lang.NullPointerException ex) {}	
 		}
 		return flag;
+	}
+	
+	public static void sortArrayDescent(Object[] m) {
+		
+		if(m[0].getClass().isArray()) {
+		
+			for (int i = 0; i < m.length; i++) {
+				
+				try {			
+					Utilities.sortArrayDescent((Object[]) m[i]);
+					
+				}catch(java.lang.NullPointerException ex) {}	
+			}
+		}else {
+			Arrays.sort(m, Collections.reverseOrder());
+		}
+	}
+	
+	public static void sortArrayAscent(Object[] m) {
+		
+		if(m[0].getClass().isArray()) {
+		
+			for (int i = 0; i < m.length; i++) {
+				
+				try {			
+					Utilities.sortArrayDescent((Object[]) m[i]);
+					
+				}catch(java.lang.NullPointerException ex) {}	
+			}
+		}else {
+			Arrays.sort(m);
+		}
 	}
 	
 	public static int getInteger(int min, int max) {
@@ -110,14 +144,18 @@ public class Utilities {
 	}
 	
 	public static void main(String[] args) {
+
+		Integer[] numbers = {7,2,8,3,5};
+		 
+		Utilities.imprimirMatriz(numbers);
 		
-		Integer[][][] x = new Integer[8][12][13];
+		Utilities.sortArrayDescent(numbers);
+		 
+		Utilities.imprimirMatriz(numbers);
 		
-		
-		
-		x[7][11][12] = 9;
-		
-		System.out.println(Utilities.containsElement(x, 9));
+		Utilities.sortArrayAscent(numbers);
+		 
+		Utilities.imprimirMatriz(numbers);
 	}
 
 }
