@@ -26,10 +26,6 @@ public class Utilities {
 		System.out.println();
 	}
 	
-	public static void x() {
-		
-	}
-	
 	public static boolean containsElement(Object[] m, Object e) {
 		
 		boolean flag = false;
@@ -141,9 +137,7 @@ public class Utilities {
 				char c = (char) System.in.read();
 				while(System.in.read() != '\n');
 				return c;
-			}catch(java.io.IOException e) {
-				
-			}
+			}catch(java.io.IOException e) {}
 		}while(true);
 	}
 	
