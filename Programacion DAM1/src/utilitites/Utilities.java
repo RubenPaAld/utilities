@@ -26,6 +26,10 @@ public class Utilities {
 		System.out.println();
 	}
 	
+	public static void x() {
+		
+	}
+	
 	public static boolean containsElement(Object[] m, Object e) {
 		
 		boolean flag = false;
