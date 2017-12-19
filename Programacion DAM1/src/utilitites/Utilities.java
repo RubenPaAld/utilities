@@ -34,13 +34,13 @@ public class Utilities {
 
 			try {
 				if(m[i].getClass().isArray()) { 
-					
+
 					if (Utilities.containsElement((Object[]) m[i], e)) {
 						flag = true;
 						break;
 					}
 				}else {
-					
+
 					if (m[i].equals(e)) {
 						flag = true;
 						break;
@@ -51,7 +51,7 @@ public class Utilities {
 		return flag;
 	}
 	
-	public static void sortArrayDescent(Object[] m) {
+	public static void sortArrayDescent(Object[] m) { //la matriz tiene que ser rectangular
 		
 		if(m[0].getClass().isArray()) {
 		
