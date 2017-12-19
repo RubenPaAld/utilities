@@ -74,7 +74,7 @@ public class Utilities {
 			for (Object e: m) {
 				
 				try {			
-					Utilities.sortArrayDescent((Object[]) e);
+					Utilities.sortArrayAscent((Object[]) e);
 					
 				}catch(java.lang.NullPointerException ex) {}	
 			}
