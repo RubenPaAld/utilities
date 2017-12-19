@@ -1,5 +1,5 @@
 package utilitites;
-
+ 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
@@ -10,15 +10,15 @@ public class Utilities {
 	
 	public static void imprimirMatriz(Object[] m) {
 		
-		for (int i = 0; i < m.length; i++) {
+		for (Object e: m) {
 
 			try {
-				if(m[i].getClass().isArray()) 
-					Utilities.imprimirMatriz((Object[]) m[i]);
+				if(e.getClass().isArray()) 
+					Utilities.imprimirMatriz((Object[]) e);
 				else
-					System.out.print(m[i] + "\t");
+					System.out.print(e.toString() + "\t");
 				
-			}catch(java.lang.NullPointerException e) {
+			}catch(java.lang.NullPointerException ex) {
 			
 				System.out.print("null" + "\t");
 			}	
@@ -30,18 +30,18 @@ public class Utilities {
 		
 		boolean flag = false;
 		
-		for (int i = 0; i < m.length; i++) {
+		for (Object el: m) {
 
 			try {
-				if(m[i].getClass().isArray()) { 
+				if(el.getClass().isArray()) { 
 
-					if (Utilities.containsElement((Object[]) m[i], e)) {
+					if (Utilities.containsElement((Object[]) el, e)) {
 						flag = true;
 						break;
 					}
 				}else {
 
-					if (m[i].equals(e)) {
+					if (el.equals(e)) {
 						flag = true;
 						break;
 					}
@@ -55,10 +55,10 @@ public class Utilities {
 		
 		if(m[0].getClass().isArray()) {
 		
-			for (int i = 0; i < m.length; i++) {
+			for (Object e: m) {
 				
 				try {			
-					Utilities.sortArrayDescent((Object[]) m[i]);
+					Utilities.sortArrayDescent((Object[]) e);
 					
 				}catch(java.lang.NullPointerException ex) {}	
 			}
@@ -71,10 +71,10 @@ public class Utilities {
 		
 		if(m[0].getClass().isArray()) {
 		
-			for (int i = 0; i < m.length; i++) {
+			for (Object e: m) {
 				
 				try {			
-					Utilities.sortArrayDescent((Object[]) m[i]);
+					Utilities.sortArrayDescent((Object[]) e);
 					
 				}catch(java.lang.NullPointerException ex) {}	
 			}
@@ -143,17 +143,10 @@ public class Utilities {
 	
 	public static void main(String[] args) {
 
-		Integer[] numbers = {7,2,8,3,5};
+		Integer[][] numbers = {{7,6,7,8},{2,5},{1,2,3,4}};
 		 
-		Utilities.imprimirMatriz(numbers);
-		
-		Utilities.sortArrayDescent(numbers);
-		 
-		Utilities.imprimirMatriz(numbers);
-		
-		Utilities.sortArrayAscent(numbers);
-		 
-		Utilities.imprimirMatriz(numbers);
+		System.out.println(Utilities.containsElement(numbers, 12));
+	
 	}
 
 }
