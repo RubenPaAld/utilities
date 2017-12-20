@@ -146,7 +146,7 @@ public class Utilities {
 		if(dni.matches("\\d{8}[a-zA-Z]{1}")) {
 			
 			return "TRWAGMYFPDXBNJZSQVHLCKE".charAt(Integer.parseInt(dni.substring(0, 8)) % 23) == Character.toUpperCase(dni.charAt(8));
-				
+			
 		}else {
 			return false;
 		}		
@@ -154,7 +154,6 @@ public class Utilities {
 	
 	public static void main(String[] args) {
 
-		System.out.println(Utilities.isDNI("33559930D"));
 	
 	}
 
