@@ -141,11 +141,20 @@ public class Utilities {
 		}while(true);
 	}
 	
+	public static boolean isDNI(String dni) {
+		
+		if(dni.matches("\\d{8}[a-zA-Z]{1}")) {
+			
+			return "TRWAGMYFPDXBNJZSQVHLCKE".charAt(Integer.parseInt(dni.substring(0, 8)) % 23) == Character.toUpperCase(dni.charAt(8));
+				
+		}else {
+			return false;
+		}		
+	}
+	
 	public static void main(String[] args) {
 
-		Integer[][] numbers = {{7,6,7,8},{2,5},{1,2,3,4}};
-		 
-		System.out.println(Utilities.containsElement(numbers, 12));
+		System.out.println(Utilities.isDNI("33559930D"));
 	
 	}
 
