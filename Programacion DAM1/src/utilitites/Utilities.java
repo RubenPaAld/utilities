@@ -154,7 +154,6 @@ public class Utilities {
 	
 	public static void main(String[] args) {
 		
-		System.out.println("12345r".charAt("12345r".length()-1));
 	}
 
 }
