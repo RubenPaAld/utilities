@@ -143,9 +143,9 @@ public class Utilities {
 	
 	public static boolean isDNI(String dni) {
 		
-		if(dni.matches("\\d{8}[a-zA-Z]{1}")) {
+		if(dni.matches("\\d{1,8}[a-zA-Z]{1}")) {
 			
-			return "TRWAGMYFPDXBNJZSQVHLCKE".charAt(Integer.parseInt(dni.substring(0, 8)) % 23) == Character.toUpperCase(dni.charAt(8));
+			return "TRWAGMYFPDXBNJZSQVHLCKE".charAt(Integer.parseInt(dni.substring(0, dni.length()-1)) % 23) == Character.toUpperCase(dni.charAt(dni.length()-1));
 			
 		}else {
 			return false;
@@ -153,8 +153,8 @@ public class Utilities {
 	}
 	
 	public static void main(String[] args) {
-
-	
+		
+		System.out.println("12345r".charAt("12345r".length()-1));
 	}
 
 }
