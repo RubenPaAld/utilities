@@ -104,7 +104,7 @@ public class Utilities {
 		return Utilities.getInteger(Integer.MIN_VALUE, Integer.MAX_VALUE);
 	}
 	
-	public static double getdouble(double min, double max) {
+	public static double getDouble(double min, double max) {
 		
 		do {
 			try {
@@ -122,7 +122,7 @@ public class Utilities {
 	
 	public static double getDouble() {
 		
-		return Utilities.getdouble(Double.MIN_VALUE, Double.MAX_VALUE);
+		return Utilities.getDouble(Double.MIN_VALUE, Double.MAX_VALUE);
 	}
 	
 	public static String getString() {
@@ -141,19 +141,83 @@ public class Utilities {
 		}while(true);
 	}
 	
-	public static boolean isDNI(String dni) {
+	public static boolean isDniCompleto(String dni) {
 		
 		if(dni.matches("\\d{1,8}[a-zA-Z]{1}")) {
 			
-			return "TRWAGMYFPDXBNJZSQVHLCKE".charAt(Integer.parseInt(dni.substring(0, dni.length()-1)) % 23) == Character.toUpperCase(dni.charAt(dni.length()-1));
+			return getLetraDni(Integer.parseInt(dni.substring(0, dni.length()-1))) == Character.toUpperCase(dni.charAt(dni.length()-1));
 			
 		}else {
 			return false;
 		}		
 	}
 	
+	public static boolean isDniNumero(int dni) {
+		
+		if(dni > 0 && dni < 100000000) {
+			
+			return true;
+			
+		}else {
+			return false;
+		}	
+	}
+	
+	public static Character getLetraDni(int n) {
+		
+		if(n > 0 && n < 100000000) {
+			
+			return "TRWAGMYFPDXBNJZSQVHLCKE".charAt(n % 23);
+			
+		}else {
+			return null;
+		}
+	}
+	
+	public static String rellenarDni(String dni) {
+		
+		
+		if(dni.matches("\\d{1,8}[a-zA-Z]{1}")) {
+			
+			if(isDniCompleto(dni))
+				return getZero(dni.substring(0, dni.length()-1)) + dni;
+			else
+				return null;
+			
+		}else if(dni.matches("\\d{1,8}")) {
+			
+			int n = Integer.parseInt(dni);
+			
+			if(isDniNumero(n)) {
+				
+				return getZero(dni)+dni + getLetraDni(n);
+				
+			}else {
+				return null;
+			}
+			
+		}else {
+			return null;
+		}	
+	}
+	
+	private static String getZero(String n) {
+		
+		String s = "";
+		
+		for(int i = 1; i <= (8-n.length()); i++) {
+			
+			s += "0";
+			
+		}
+		return s;
+		
+	}
+	
 	public static void main(String[] args) {
-		System.out.println();
+		
+		System.out.println(rellenarDni("3A"));
+
 	}
 
 }
