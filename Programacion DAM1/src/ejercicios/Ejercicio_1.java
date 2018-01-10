@@ -1,7 +1,5 @@
 package ejercicios;
 
-import utilitites.Utilities;
-
 public class Ejercicio_1 {
 
 	

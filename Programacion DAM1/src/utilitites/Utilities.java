@@ -143,24 +143,19 @@ public class Utilities {
 	
 	public static boolean isDniCompleto(String dni) {
 		
-		if(dni.matches("\\d{1,8}[a-zA-Z]{1}")) {
+		if(dni.matches("\\d{1,8}[a-zA-Z]{1}"))
 			
 			return getLetraDni(Integer.parseInt(dni.substring(0, dni.length()-1))) == Character.toUpperCase(dni.charAt(dni.length()-1));
 			
-		}else {
-			return false;
-		}		
+		return false;			
 	}
 	
 	public static boolean isDniNumero(int dni) {
 		
-		if(dni > 0 && dni < 100000000) {
-			
+		if(dni > 0 && dni < 100000000)
 			return true;
 			
-		}else {
-			return false;
-		}	
+		return false;		
 	}
 	
 	public static Character getLetraDni(int n) {
@@ -169,54 +164,40 @@ public class Utilities {
 			
 			return "TRWAGMYFPDXBNJZSQVHLCKE".charAt(n % 23);
 			
-		}else {
-			return null;
 		}
+		return null;	
 	}
 	
 	public static String rellenarDni(String dni) {
-		
-		
+			
 		if(dni.matches("\\d{1,8}[a-zA-Z]{1}")) {
 			
 			if(isDniCompleto(dni))
-				return getZero(dni.substring(0, dni.length()-1)) + dni;
-			else
-				return null;
+				return getZero(dni.substring(0, dni.length()-1)) + dni.toUpperCase();
 			
 		}else if(dni.matches("\\d{1,8}")) {
 			
 			int n = Integer.parseInt(dni);
 			
-			if(isDniNumero(n)) {
-				
-				return getZero(dni)+dni + getLetraDni(n);
-				
-			}else {
-				return null;
-			}
-			
-		}else {
-			return null;
+			if(isDniNumero(n)) 
+				return getZero(dni) + dni + getLetraDni(n);
 		}	
+		return null;
 	}
 	
 	private static String getZero(String n) {
 		
 		String s = "";
 		
-		for(int i = 1; i <= (8-n.length()); i++) {
-			
+		for(int i = 0; i < (8-n.length()); i++) 	
 			s += "0";
 			
-		}
-		return s;
-		
+		return s;	
 	}
 	
 	public static void main(String[] args) {
 		
-		System.out.println(rellenarDni("3A"));
+		System.out.println(rellenarDni("33559930d"));
 
 	}
 
